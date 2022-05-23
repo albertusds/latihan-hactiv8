@@ -7,6 +7,7 @@ import (
 )
 
 func main() {
+	//db conn
 	db := database.StartDB()
 	userRepo := repository.NewUserRepo(db)
 	productRepo := repository.NewProductRepo(db)
