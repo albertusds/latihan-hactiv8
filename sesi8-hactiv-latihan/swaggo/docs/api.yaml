@@ -1,0 +1,148 @@
+swagger: "2.0"
+info:
+  description: "This is simple API Docs"
+  version: "1.0.0"
+  title: "Swagger Petstore"
+  termsOfService: "http://swagger.io/terms/"
+  contact:
+    email: "apiteam@swagger.io"
+    name: "Support Swagger"
+  license:
+    name: "Apache 2.0"
+    url: "http://www.apache.org/licenses/LICENSE-2.0.html"
+host: "petstore.swagger.io"
+basePath: "/v2"
+
+paths:
+  /pet:
+    post:
+      tags: 
+        - "pets"
+      operationId: "addPets"
+      summary: "Create new pet"
+      description: "Create new pet"
+      parameters:
+        - in: body
+          name: body
+          description: "data"
+          schema:
+            type: "object"
+            properties: 
+              name:
+                type: "string"
+                example: "doggy"
+              gender:
+                type: "string"
+              age:
+                type: "number"
+                example: 10
+      responses:
+        201:
+          description: "OK"
+          schema:
+            type: "object"
+            properties: 
+              status:
+                type: number
+                example: 201
+              message:
+                type: string
+                example: "created success"
+        400:
+          description: "Bad Request"
+          schema:
+            type: "object"
+            properties: 
+              status:
+                type: number
+                example: 400
+              error:
+                type: string
+                example: "BAD_REQUEST"
+              additional_info:
+                type: object
+                properties: 
+                  message:
+                    type: string
+                    example: "invalid character"
+  /pets:
+    get:
+      tags: 
+        - "pets"
+      operationId: "getPets"
+      summary: "get all pet"
+      description: "get all pet"
+      responses:
+        200:
+          description: "OK"
+          schema:
+            type: "array"
+            items:
+                type: "object"
+                properties: 
+                  name:
+                    type: "string"
+                    example: "doggy"
+                  gender:
+                    type: "string"
+                  age:
+                    type: "number"
+                    example: 10
+        404:
+          description: "Bad Request"
+          schema:
+            type: "object"
+            properties: 
+              status:
+                type: number
+                example: 404
+              error:
+                type: string
+                example: "NOT_FOUND"
+              additional_info:
+                type: object
+                properties: 
+                  message:
+                    type: string
+                    example: "data not found"
+
+  /pet/{id}:
+    get:
+      tags: 
+        - "pets"
+      operationId: "getPets"
+      summary: "get pet by id"
+      description: "get pet by id"
+      responses:
+        200:
+          description: "OK"
+          schema:
+                type: "object"
+                properties: 
+                  name:
+                    type: "string"
+                    example: "doggy"
+                  gender:
+                    type: "string"
+                  age:
+                    type: "number"
+                    example: 10
+        404:
+          description: "Bad Request"
+          schema:
+            type: "object"
+            properties: 
+              status:
+                type: number
+                example: 404
+              error:
+                type: string
+                example: "NOT_FOUND"
+              additional_info:
+                type: object
+                properties: 
+                  message:
+                    type: string
+                    example: "data not found"
+
+
