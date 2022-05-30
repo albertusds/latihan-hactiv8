@@ -11,7 +11,6 @@ func Fight(fighter []int, power []int, initialPower int) int {
 	//asign to map
 	for i, tf := range fighter {
 		testMap[tf] = power[i]
-		fmt.Println("testMap tf: ", testMap[tf])
 	}
 
 	sort.Ints(fighter)
@@ -22,7 +21,6 @@ func Fight(fighter []int, power []int, initialPower int) int {
 		if initialPower >= data {
 			initialPower += testMap[data]
 		} else {
-			fmt.Println("ellse")
 			break
 		}
 	}
